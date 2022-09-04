@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<title>Cursos disponíveis</title>
+{% endblock %}
+
+{% block conteudo %}
+	<h1>Escolha um curso</h1>
+	<ul>
+		<li><a href="{{ rotas[0] }}">{{ cursos[0] }}</a></li>
+		<li><a href="{{ rotas[1] }}">{{ cursos[1] }}</a></li>
+	</ul>
+
+	{# Isto é um comentário do Jinja (ele só existe no servidor, e não é enviado junto com a requisição).
+		Note que para trabalhar com listas, é muito mais prático (além de evitar erros) usar o laço for.
+		Entretanto, o Jinja também permite que usemos os índices da lista, como em um programa Python. #}
+
+	<!--
+		Apenas para comparação: isso é um comentário em HTML. Diferente do comentário do Jinja, ele é
+		enviado junto com a requisição.
+	-->
+{% endblock %}

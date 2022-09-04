@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+	<title>Informações sobre curso</title>
+{% endblock %}
+
+{% block conteudo %}
+	{# Note que podemos obter o nome da disciplina a partir do objeto de duas maneiras:
+		1- usando objeto.nome, visto que nome foi deixado propositalmente como um atributo público;
+		2- também podemos obter através do método get_nome(), como foi feito abaixo;
+		Ou seja, podemos usar qualquer método que retorna um valor, onde esse valor será exibido
+		na página gerada pelo Flask. #}
+
+	<h1>Página da disciplina de {{ objeto.get_nome() }}</h1>
+	<p>{{ objeto.get_descricao() }}</p>
+
+	<h2>Habilidades</h2>
+	<ul>
+		{% for item in habilidades %}
+			<li>{{ item }}</li>
+		{% endfor %}
+	</ul>
+
+	<p>Nível de dificuldade: 
+	{% if dificuldade == 1 %}
+		<strong>Fácil</strong>
+	{% elif dificuldade == 2 %}
+		<strong>Médio</strong>
+	{% else %}
+		<strong>Difícil</strong>
+	{% endif %}
+	</p>
+{% endblock %}
